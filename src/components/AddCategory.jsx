@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PropTypes } from "prop-types";
 
 export const AddCategory = ({ onNewCategory }) => {
 
@@ -13,7 +14,7 @@ export const AddCategory = ({ onNewCategory }) => {
     event.preventDefault(); // evitar el refresh de la pagina
     // console.log(inputValue)
 
-    if ( inputValue.trim().length <= 1 ) return; // obj: salir de la funcion y n se siga ejecutando
+    if ( inputValue.trim().length <= 1 ) return; // obj: salir de la funcion y no se siga ejecutando
 
     // setCategories( (categories) => [ inputValue, ...categories ])
     onNewCategory( inputValue.trim() );
@@ -21,7 +22,8 @@ export const AddCategory = ({ onNewCategory }) => {
   }
 
   return (
-    <form onSubmit={ (event) => onSubmit(event) } >
+    // <form onSubmit={ (event) => onSubmit(event) } >
+    <form onSubmit={ onSubmit } aria-label="form">
       <input 
         type="text"
         placeholder="Search Gifts"
@@ -31,4 +33,8 @@ export const AddCategory = ({ onNewCategory }) => {
       />
     </form>
   )
+}
+
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired,
 }
