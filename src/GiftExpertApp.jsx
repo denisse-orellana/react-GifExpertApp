@@ -25,7 +25,7 @@ export const GiftExpertApp = () => {
 
   return (
     <>
-      GiftExpertApp
+      GifExpertApp
       <AddCategory 
         // setCategories={ setCategories }
         onNewCategory={ value => onAddCategory(value) }
